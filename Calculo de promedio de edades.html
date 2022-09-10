@@ -1,0 +1,28 @@
+<meta charset="UTF-8">
+
+<h1> Programa promedio de edades </h1>
+
+<script>
+
+function print(contenido) {
+		document.write(contenido);
+		document.write("<br>")
+		document.write("<br>")
+	}
+
+var integrantes = parseInt(prompt("Ingrese la cantidad de integrantes de su familia"));
+var contador = 1
+var totalEdades = 0
+
+while(contador <= integrantes){
+
+	var edad = parseInt(prompt("Ingrese la edad del familiar " + contador));
+	totalEdades = totalEdades + edad;
+	contador++;
+
+}
+
+var promedio = totalEdades/integrantes;
+print("El promedio de edad es " + promedio);
+
+</script>

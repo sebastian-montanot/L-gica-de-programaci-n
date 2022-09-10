@@ -1,0 +1,39 @@
+<meta charset="UTF-8">
+
+<h1> Inicio de sesión </h1>
+
+<script>
+
+var usuarioRegistrado = "Sebastian";
+var contraseñaRegistrada = "123456";
+var intentos = 3;
+var contador = 1;
+
+while(contador <= 3){
+
+	var usuario = prompt("Ingrese su usuario");
+	var contraseña = prompt("Ingrese su contraseña");
+
+	if(usuario == usuarioRegistrado && contraseña == contraseñaRegistrada){
+	alert("Bienvenido " + usuario)
+	break;
+	}
+
+	else {
+
+		if(contador < 3){
+			if(usuario != usuarioRegistrado) {
+			alert("El usuario es incorrecto (le quedan " + (3-contador) + " intentos)")
+			} else {
+				if(contraseña != contraseñaRegistrada) {
+				alert("La contraseña es incorrecta (le quedan " + (3-contador) + " intentos)")
+			}
+			}
+		} else {
+			alert("Usuario bloqueado, comuniquese con el administrador")
+		}
+	}
+	contador++;
+}
+
+</script>

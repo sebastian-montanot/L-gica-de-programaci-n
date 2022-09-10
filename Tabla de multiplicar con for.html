@@ -1,0 +1,19 @@
+<meta charset="UTF-8">
+
+<h1> Tabla de multiplicar </h1>
+
+<script>
+
+function print(contenido) {
+		document.write(contenido);
+		document.write("<br>")
+		document.write("<br>")
+	}
+
+var multiplo = parseInt(prompt("Ingrese el numero de la tabla de multiplicar"))
+
+for(var multiplicador = 1; multiplicador <= 10; multiplicador++){
+	print(multiplo + " X " + multiplicador + " = " + (multiplo*multiplicador));
+}
+
+</script>

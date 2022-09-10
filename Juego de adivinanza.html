@@ -1,0 +1,47 @@
+<meta charset="UTF-8">
+
+<h1> Juego adivinanza </h1>
+
+<script>
+
+	function print(contenido) {
+		document.write(contenido);
+		document.write("<br>")
+		document.write("<br>")
+	}
+
+	function loteria(n){
+		return Math.round(Math.random()*n);
+	}
+
+var numeroPensado = loteria(10);
+var intentos = 3;
+var contador = 1;
+
+while(contador <= 3){
+
+	var numeroLanzado = parseInt(prompt("Ingrese un numero entre 0 y 10"));
+
+	if(numeroPensado == numeroLanzado){
+	alert("¡Acertó en el " + contador + " intento!")
+	break;
+	}
+
+	else {
+
+		if(contador < 3){
+			if(numeroLanzado > numeroPensado) {
+			alert("El numero que elegiste es mayor al numero ganador, sigue intentando (le quedan " + (3-contador) + " intentos)")
+			} else {
+			alert("	El numero que elegiste es menor al numero ganador, sigue intentando (le quedan " + (3-contador) + " intentos)")
+			}
+		} else {
+			print("Perdiste")
+		}
+	}
+	contador++;
+}
+
+print("El numero ganador era " + numeroPensado)
+
+</script>

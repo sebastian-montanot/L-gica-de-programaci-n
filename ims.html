@@ -1,0 +1,41 @@
+<meta charset="UTF-8">
+
+<h1> Medición del IMC </h1>
+
+<script>
+
+	function print(contenido) {
+		document.write(contenido);
+		document.write("<br>")
+		document.write("<br>")
+	}
+
+	function imc(peso,altura){
+		return (peso / (altura * altura));
+	}
+
+	var pesoIng = (prompt("Ingrese su peso"));
+	var alturaIng = (prompt("ingrese su altura"));
+	imcResult = imc(pesoIng,alturaIng);
+
+	print(alturaIng)
+
+	print("Su imc calculado es: " + imcResult);
+
+	if (imcResult < 18.5) {
+		print("Su IMC está por debajo de lo recomendado");
+	}
+
+	if (imcResult >= 18.5 && imcResult < 25) {
+		print("Su IMC está dentro de lo recomendado (normal)");
+	}
+
+	if (imcResult >= 25 && imcResult < 30) {
+		print("Su IMC está por encima de lo recomendado (sobrepeso)");
+	}
+
+	if (imcResult >= 30) {
+		print("Su IMC está por encima de lo recomendado (obesidad)");
+	}
+	
+</script>

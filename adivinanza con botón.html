@@ -1,0 +1,28 @@
+<meta charset="UTF-8">
+
+<h1> Juego adivinanza </h1>
+
+<input/>
+<button> Verificar si acerté</button>
+
+<script>
+
+	var numeroSecreto = Math.round(Math.random()*10);
+	var input = document.querySelector("input");
+	input.focus();
+
+	function verificar(){
+		if(parseInt(input.value) == numeroSecreto){
+			alert("¡Acertó!");
+		} else {
+			alert("Sigue intentando");
+		}
+
+		input.value = "";
+		input.focus();
+	}
+
+var button = document.querySelector("button");
+button.onclick = verificar;
+
+</script>

@@ -1,0 +1,80 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+	var pantalla = document.querySelector("canvas");
+	var pincel = pantalla.getContext("2d");
+	var colores = ["red", "green", "blue"]
+
+	pincel.fillStyle = "grey";
+	pincel.fillRect(0,0,600,400);
+
+	function dibujarCuadrado(x,y,base,alura,color){
+		pincel.fillStyle = color;
+		pincel.fillRect(x,y,base,altura);
+		pincel.strokeStyle = "black";
+		pincel.strokeRect(x,y,base,altura);
+	}
+
+	var paleta = 0
+
+	for (var i = 0; i <= colores.length-1; i++) {
+
+		pincel.fillStyle = colores[i];
+		pincel.fillRect(0+paleta, 0, 50, 50);
+		pincel.strokeStyle = "black";
+		pincel.strokeRect(0+paleta, 0, 50, 50);
+		paleta = paleta + 50;
+	}
+
+	pincel.fillStyle = "black";
+
+	function tinta(colorTinta) {
+		pincel.fillStyle = colorTinta;
+	}
+
+	function seleccionarColor(evento){
+		var x = evento.pageX - pantalla.offsetLeft;
+		var y = evento.pageY - pantalla.offsetTop;
+		if(x < 50 && y < 50){
+			tinta("red");
+		}
+		if((x > 50) && (x < 100) && (y < 50)){
+			tinta("green");
+		}
+		if((x > 100) && (x < 150) && (y < 50)){
+			tinta("blue");
+		}
+		
+	}
+
+	var puedoDibujar = false;
+
+	function dibujarCirculo(evento){
+
+		if(puedoDibujar){
+			var x = evento.pageX - pantalla.offsetLeft;
+			var y = evento.pageY - pantalla.offsetTop;
+
+			pincel.beginPath();
+			pincel.arc(x,y,5,0,2*Math.PI);
+			pincel.fill();
+		}
+		if(x < 155 && y < 55){
+			deshabilitarDibujar();
+		}
+	}
+
+	function habilitarDibujar(){
+		puedoDibujar = true;
+	}
+
+	function deshabilitarDibujar(){
+		puedoDibujar = false;
+	}
+
+	pantalla.onmousemove = dibujarCirculo;
+	pantalla.onmousedown = habilitarDibujar;
+	pantalla.onmouseup = deshabilitarDibujar;
+	pantalla.onclick = seleccionarColor;
+
+</script>

@@ -1,0 +1,22 @@
+<meta charset="UTF-8">
+
+<h1> Año en los que hubieron mundiales </h1>
+
+<script>
+
+function print(contenido) {
+		document.write(contenido);
+		document.write("<br>")
+		document.write("<br>")
+	}
+var mundialYear = 1930;
+var limite = parseInt(prompt("Ingrese año limite del calculo"))
+
+while(mundialYear <= limite){
+	print("Hubo mundial de la FIFA en el año" + mundialYear);
+	mundialYear = mundialYear + 4;
+}
+
+print("Fin")
+
+</script>
